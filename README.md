@@ -1,3 +1,5 @@
+click to visit -> https://dietai-zeta.vercel.app/
+
 DietList Project
 This project utilizes the Gemini API to create personalized diet plans based on user information such as height, weight, age, and activity level.
 
