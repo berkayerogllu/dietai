@@ -20,8 +20,8 @@ import {
   deleteDoc
 } from 'firebase/firestore';
 
-// This section contains general CSS styles to be used throughout the application.
-// In a typical React project, these styles would be in a separate CSS file (e.g., App.css or index.css).
+// Bu bölüm, uygulama genelinde kullanılacak genel CSS stillerini içerir.
+// Tipik bir React projesinde, bu stiller ayrı bir CSS dosyasında (örneğin, App.css veya index.css) bulunurdu.
 const appStyles = `
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 
@@ -65,28 +65,28 @@ const appStyles = `
   .text-gray-500 { color: #6b7280; }
   .mb-8 { margin-bottom: 2rem; }
   
-  /* Custom CSS for header buttons positioning */
+  /* Başlık butonları konumlandırması için özel CSS */
   .header-container {
     position: relative;
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 1rem; /* Adjust as needed */
+    margin-bottom: 1rem; /* İhtiyaca göre ayarlayın */
   }
 
   .header-button-group {
       display: flex;
-      z-index: 10; /* Ensure buttons are on top */
-      position: absolute; /* Position relative to .header-container */
+      z-index: 10; /* Butonların üstte olmasını sağlar */
+      position: absolute; /* .header-container'a göre konumlandırır */
       top: 0;
       right: 0;
   }
   .header-button-group > *:not(:first-child) {
-      margin-left: 1rem; /* Space between buttons */
+      margin-left: 1rem; /* Butonlar arası boşluk */
   }
 
-  /* Buttons */
+  /* Butonlar */
   .btn-green {
     background-color: #22c55e; /* green-500 */
     color: #ffffff;
@@ -98,7 +98,7 @@ const appStyles = `
     transition-duration: 200ms;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
     font-size: 0.875rem;
-    border: 1px solid #d1d5db; /* Added border */
+    border: 1px solid #d1d5db; /* Kenarlık eklendi */
   }
   .btn-green:hover { background-color: #16a34a; } /* green-600 */
 
@@ -113,16 +113,16 @@ const appStyles = `
     transition-duration: 200ms;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
     font-size: 0.875rem;
-    border: 1px solid #d1d5db; /* Added border */
+    border: 1px solid #d1d5db; /* Kenarlık eklendi */
   }
   .btn-red:hover { background-color: #dc2626; } /* red-600 */
 
-  /* Reduced padding and font-size for primary/secondary/orange buttons */
+  /* Birincil/ikincil/turuncu butonlar için azaltılmış dolgu ve yazı tipi boyutu */
   .btn-primary {
     background-color: #22c55e; /* green-600 */
     color: #ffffff;
     font-weight: 700;
-    padding: 0.6rem 1.25rem; /* Reduced from 0.75rem 1.5rem */
+    padding: 0.6rem 1.25rem; /* 0.75rem 1.5rem'den azaltıldı */
     border-radius: 0.75rem;
     transition-property: all;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -132,8 +132,8 @@ const appStyles = `
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid #d1d5db; /* Added border */
-    font-size: 0.9rem; /* Reduced font size */
+    border: 1px solid #d1d5db; /* Kenarlık eklendi */
+    font-size: 0.9rem; /* Yazı tipi boyutu azaltıldı */
   }
   .btn-primary:hover { background-color: #16a34a; transform: scale(1.05); } /* green-700 */
   .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
@@ -142,7 +142,7 @@ const appStyles = `
     background-color: #6366f1; /* indigo-600 */
     color: #ffffff;
     font-weight: 700;
-    padding: 0.6rem 1.25rem; /* Reduced from 0.75rem 1.5rem */
+    padding: 0.6rem 1.25rem; /* 0.75rem 1.5rem'den azaltıldı */
     border-radius: 0.75rem;
     transition-property: all;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -152,8 +152,8 @@ const appStyles = `
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid #d1d5db; /* Added border */
-    font-size: 0.9rem; /* Reduced font size */
+    border: 1px solid #d1d5db; /* Kenarlık eklendi */
+    font-size: 0.9rem; /* Yazı tipi boyutu azaltıldı */
   }
   .btn-secondary:hover { background-color: #4f46e5; transform: scale(1.05); } /* indigo-700 */
   .btn-secondary:disabled { opacity: 0.5; cursor: not-allowed; }
@@ -162,7 +162,7 @@ const appStyles = `
     background-color: #f97316; /* orange-500 */
     color: #ffffff;
     font-weight: 700;
-    padding: 0.6rem 1.25rem; /* Reduced from 0.75rem 1.5rem */
+    padding: 0.6rem 1.25rem; /* 0.75rem 1.5rem'den azaltıldı */
     border-radius: 0.75rem;
     transition-property: all;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -172,8 +172,8 @@ const appStyles = `
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid #d1d5db; /* Added border */
-    font-size: 0.9rem; /* Reduced font size */
+    border: 1px solid #d1d5db; /* Kenarlık eklendi */
+    font-size: 0.9rem; /* Yazı tipi boyutu azaltıldı */
   }
   .btn-orange:hover { background-color: #ea580c; transform: scale(1.05); } /* orange-600 */
   .btn-orange:disabled { opacity: 0.5; cursor: not-allowed; }
@@ -185,12 +185,12 @@ const appStyles = `
     padding: 0.5rem 1rem;
     border-radius: 0.75rem;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    border: 1px solid #d1d5db; /* Added border */
+    border: 1px solid #d1d5db; /* Kenarlık eklendi */
   }
   .btn-gray-200:hover { background-color: #d1d5db; } /* gray-300 */
 
 
-  /* Utility classes */
+  /* Yardımcı sınıflar */
   .space-y-6 > *:not(:first-child) { margin-top: 1.5rem; }
   .space-y-4 > *:not(:first-child) { margin-top: 1rem; }
   .space-y-1 > *:not(:first-child) { margin-top: 0.25rem; }
@@ -232,7 +232,7 @@ const appStyles = `
   .font-semibold { font-weight: 600; }
   .h-full { height: 100%; }
   .items-center { align-items: center; }
-  .form-radio { appearance: none; border-radius: 9999px; border-width: 1px; border-color: #4a4a4a; width: 1.25rem; height: 1.25rem; background-color: #ffffff; flex-shrink: 0;} /* Dark grey border for unselected */
+  .form-radio { appearance: none; border-radius: 9999px; border-width: 1px; border-color: #4a4a4a; width: 1.25rem; height: 1.25rem; background-color: #ffffff; flex-shrink: 0;} /* Seçili olmayanlar için koyu gri kenarlık */
   .form-radio:checked { background-color: #22c55e; border-color: #16a34a; }
   .form-radio:checked:after { 
     content: ''; 
@@ -242,7 +242,7 @@ const appStyles = `
     height: 0.5rem; 
     background-color: #ffffff; 
     transform: translate(50%, 50%); 
-    border: 1px solid #4a4a4a; /* Added 1px dark grey border for the inner dot */
+    border: 1px solid #4a4a4a; /* İç nokta için 1px koyu gri kenarlık eklendi */
   }
   .ml-2 { margin-left: 0.5rem; }
   .text-gray-800 { color: #1f2937; }
@@ -253,10 +253,10 @@ const appStyles = `
   .grid { display: grid; }
   .grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
   .md\\:grid-cols-2 { @media (min-width: 768px) { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-  .gap-8 { gap: 2rem; } /* Changed from gap-6 to gap-8 */
+  .gap-8 { gap: 2rem; } /* gap-6'dan gap-8'e değiştirildi */
   .mt-6 { margin-top: 1.5rem; }
   .pt-8 { padding-top: 2rem; }
-  /* Removed border-t-2 border-green-200 */
+  /* border-t-2 border-green-200 kaldırıldı */
   .grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .sm\\:grid-cols-3 { @media (min-width: 640px) { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
   .gap-3 { gap: 0.75rem; }
@@ -289,7 +289,7 @@ const appStyles = `
   .text-white { color: #ffffff; }
   .fixed { position: fixed; }
   .inset-0 { top: 0; right: 0; bottom: 0; left: 0; }
-  .bg-black-opacity-50 { background-color: rgba(0, 0, 0, 0.5); } /* Custom class for auth modal overlay */
+  .bg-black-opacity-50 { background-color: rgba(0, 0, 0, 0.5); } /* Kimlik doğrulama modalı kaplaması için özel sınıf */
   .max-w-lg { max-width: 32rem; } /* 512px */
   .max-h-90vh { max-height: 90vh; }
   .overflow-y-auto { overflow-y: auto; }
@@ -384,7 +384,7 @@ const appStyles = `
       display: flex;
       align-items: center;
       justify-content: center;
-      border: 1px solid #d1d5db; /* Added border */
+      border: 1px solid #d1d5db; /* Kenarlık eklendi */
   }
   .btn-red-confirm:hover { background-color: #b91c1c; transform: scale(1.05); } /* red-700 */
   .btn-red-confirm:disabled { opacity: 0.5; cursor: not-allowed; }
@@ -400,16 +400,16 @@ const appStyles = `
       transition-duration: 300ms;
       transform: var(--tw-transform);
       box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-      border: 1px solid #d1d5db; /* Added border */
+      border: 1px solid #d1d5db; /* Kenarlık eklendi */
   }
   .btn-gray-cancel:hover { background-color: #9ca3af; transform: scale(1.05); } /* gray-400 */
   .btn-gray-cancel:disabled { opacity: 0.5; cursor: not-allowed; }
 
-  /* Removed background-color and box-shadow from here, applying them conditionally in JSX */
+  /* Buradan arka plan rengi ve kutu gölgesi kaldırıldı, JSX'te koşullu olarak uygulanıyor */
   .radio-option-label {
     display: inline-flex;
     align-items: center;
-    padding: 0.5rem 1rem; /* py-2 px-4 - Changed from 0.75rem 1.25rem */
+    padding: 0.5rem 1rem; /* py-2 px-4 - 0.75rem 1.25rem'den değiştirildi */
     border-width: 1px;
     border-color: #d1d5db; /* gray-300 */
     border-radius: 0.5rem; /* rounded-lg */
@@ -417,29 +417,29 @@ const appStyles = `
     transition: all 0.2s ease-in-out;
   }
   .radio-option-label input[type="radio"]:checked + span {
-    /* Removed text color change here, text color will be set on the parent label */
+    /* Buradan metin rengi değişikliği kaldırıldı, metin rengi üst etikette ayarlanacak */
   }
   
-  /* Custom CSS for gender radio buttons spacing */
+  /* Cinsiyet radyo butonları aralığı için özel CSS */
   .gender-options-group {
       display: flex;
       flex-direction: column;
-      gap: 0.5rem; /* Space between items in a column */
-      width: 100%; /* Ensure it takes full width for mx-auto to work */
+      gap: 0.5rem; /* Bir sütundaki öğeler arası boşluk */
+      width: 100%; /* mx-auto'nun çalışması için tam genişlik almasını sağlar */
       margin-left: auto; /* mx-auto */
       margin-right: auto; /* mx-auto */
-      max-width: 12rem; /* Adjusted for better appearance based on image */
+      max-width: 12rem; /* Görsele göre daha iyi görünüm için ayarlandı */
   }
 
-  @media (min-width: 640px) { /* Small screens and up */
+  @media (min-width: 640px) { /* Küçük ekranlar ve üzeri */
       .gender-options-group {
-          flex-direction: row; /* Layout in a row */
-          gap: 0.5rem; /* Space between items in a row */
-          justify-content: center; /* Center items in a row */
+          flex-direction: row; /* Bir satırda düzen */
+          gap: 0.5rem; /* Bir satırdaki öğeler arası boşluk */
+          justify-content: center; /* Öğeleri bir satırda ortala */
       }
   }
 
-  /* Specific styles for gender radio buttons */
+  /* Cinsiyet radyo butonları için özel stiller */
   .gender-option-male-selected {
     background-color: #3b82f6; /* blue-500 */
     color: #ffffff; /* text-white */
@@ -464,18 +464,18 @@ const appStyles = `
     background-color: #ffffff; /* bg-white */
     color: #1f2937; /* text-gray-800 */
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* shadow-sm */
-    border: 2px solid #000000; /* Changed border to 2px black */
+    border: 2px solid #000000; /* Kenarlık 2px siyaha değiştirildi */
   }
   .gender-option-default:hover {
     background-color: #f3f4f6; /* hover:bg-gray-100 */
   }
 
-  /* Specific styles for weight goal radio buttons */
+  /* Kilo hedefi radyo butonları için özel stiller */
   .weight-goal-option-selected {
     background-color: #22c55e; /* green-500 */
     color: #ffffff;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    border-color: #22c55e; /* Ensure border color matches */
+    border-color: #22c55e; /* Kenarlık renginin eşleştiğinden emin olun */
   }
   .weight-goal-option-selected:hover {
     background-color: #16a34a; /* green-600 */
@@ -485,18 +485,18 @@ const appStyles = `
     background-color: #ffffff; /* bg-white */
     color: #1f2937; /* text-gray-800 */
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* shadow-sm */
-    border: 2px solid #000000; /* Changed border to 2px black */
+    border: 2px solid #000000; /* Kenarlık 2px siyaha değiştirildi */
   }
   .weight-goal-option-default:hover {
     background-color: #f3f4f6; /* hover:bg-gray-100 */
   }
 
-  /* Custom class for 10px gap between weight goal buttons */
+  /* Kilo hedefi butonları arasında 10px boşluk için özel sınıf */
   .gap-weight-goal {
       gap: 10px;
   }
 
-  /* Custom styles for auth page switch buttons */
+  /* Kimlik doğrulama sayfası geçiş butonları için özel stiller */
   .auth-switch-button {
     background-color: transparent;
     color: #22c55e; /* green-600 */
@@ -506,7 +506,7 @@ const appStyles = `
     transition: all 0.2s ease-in-out;
     box-shadow: none;
     border: none;
-    text-decoration: underline; /* Added underline for better visibility */
+    text-decoration: underline; /* Daha iyi görünürlük için alt çizgi eklendi */
   }
   .auth-switch-button:hover {
     color: #16a34a; /* green-800 */
@@ -515,7 +515,7 @@ const appStyles = `
   }
 `;
 
-// AuthPage Component: Manages Login and Registration Processes
+// AuthPage Bileşeni: Giriş ve Kayıt Süreçlerini Yönetir
 function AuthPage({ auth, setErrorMessage, setSuccessMessage, onAuthSuccess, initialMode }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -607,7 +607,7 @@ function AuthPage({ auth, setErrorMessage, setSuccessMessage, onAuthSuccess, ini
         {isLoginMode ? "Hesabınız yok mu?" : "Zaten bir hesabınız var mı?"}{' '}
         <button
           onClick={() => setIsLoginMode(!isLoginMode)}
-          className="auth-switch-button" // New class for improved styling
+          className="auth-switch-button" // Geliştirilmiş stil için yeni sınıf
         >
           {isLoginMode ? 'Kayıt Ol' : 'Giriş Yap'}
         </button>
@@ -616,10 +616,10 @@ function AuthPage({ auth, setErrorMessage, setSuccessMessage, onAuthSuccess, ini
   );
 }
 
-// RecipeModal Component: Displays the recipe in a modal window
+// RecipeModal Bileşeni: Tarif modal penceresini görüntüler
 function RecipeModal({ recipe, onClose, loading, error }) {
   return (
-    <div className="fixed inset-0 bg-black-opacity-50 flex items-center justify-center p-4"> {/* Changed to custom class */}
+    <div className="fixed inset-0 bg-black-opacity-50 flex items-center justify-center p-4"> {/* Özel sınıfa değiştirildi */}
       <div className="bg-white p-8 rounded-2xl shadow-2xl w-full max-w-lg max-h-90vh overflow-y-auto transform transition-all duration-300 scale-100 opacity-100">
         <h3 className="text-2xl font-bold text-green-800 mb-4 text-center">Yemek Tarifi</h3>
         {loading && (
@@ -668,12 +668,12 @@ function RecipeModal({ recipe, onClose, loading, error }) {
   );
 }
 
-// ConfirmationModal Component: A modal window asking for user confirmation
+// ConfirmationModal Bileşeni: Kullanıcı onayı isteyen bir modal pencere
 function ConfirmationModal({ message, onConfirm, onCancel, show, loading }) {
   if (!show) return null;
 
   return (
-    <div className="fixed inset-0 bg-black-opacity-50 flex items-center justify-center p-4"> /* Changed to custom class */
+    <div className="fixed inset-0 bg-black-opacity-50 flex items-center justify-center p-4"> {/* Özel sınıfa değiştirildi */}
       <div className="bg-white p-8 rounded-2xl shadow-2xl w-full max-w-sm text-center">
         <p className="text-lg font-semibold text-gray-800 mb-6">{message}</p>
         <div className="flex justify-center space-x-4">
@@ -703,7 +703,7 @@ function ConfirmationModal({ message, onConfirm, onCancel, show, loading }) {
 }
 
 
-// NutritionAIAppContent Component: Displays the main application content
+// NutritionAIAppContent Bileşeni: Ana uygulama içeriğini görüntüler
 function NutritionAIAppContent({ db, currentUser, isAuthReady, setErrorMessage, setSuccessMessage, handleLogout, triggerLoginPrompt, pendingMealPlanToSave, setPendingMealPlanToSave, appId }) {
   const [weight, setWeight] = useState('');
   const [height, setHeight] = useState('');
@@ -915,7 +915,7 @@ function NutritionAIAppContent({ db, currentUser, isAuthReady, setErrorMessage, 
         }
       };
 
-      const apiKey = "AIzaSyDOxq2zKAAQAY0XM75QYXuYuwp-ipv2n_4"; // Gemini API Key
+      const apiKey = ""; // Gemini API Anahtarı
       const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
 
       const response = await fetch(apiUrl, {
@@ -999,6 +999,7 @@ function NutritionAIAppContent({ db, currentUser, isAuthReady, setErrorMessage, 
         await setDoc(docRefToUse, dataToSave, { merge: true });
         setSuccessMessage('Yemek planı başarıyla güncellendi!');
       } else {
+        // Hata düzeltmesi: Yeni bir belge eklemek için addDoc kullanıldı
         docRefToUse = await addDoc(mealPlansCollectionRef, dataToSave);
         setCurrentMealPlanDocId(docRefToUse.id);
         setSuccessMessage('Yemek planı başarıyla kaydedildi!');
@@ -1206,7 +1207,7 @@ function NutritionAIAppContent({ db, currentUser, isAuthReady, setErrorMessage, 
         }
       };
 
-      const apiKey = "AIzaSyDOxq2zKAAQAY0XM75QYXuYuwp-ipv2n_4"; // Gemini API Key
+      const apiKey = ""; // Gemini API Anahtarı
       const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
 
       const response = await fetch(apiUrl, {
@@ -1296,7 +1297,7 @@ function NutritionAIAppContent({ db, currentUser, isAuthReady, setErrorMessage, 
         }
       };
 
-      const apiKey = "AIzaSyDOxq2zKAAQAY0XM75QYXuYuwp-ipv2n_4"; // Gemini API Key
+      const apiKey = ""; // Gemini API Anahtarı
       const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
 
       const response = await fetch(apiUrl, {
@@ -1332,17 +1333,17 @@ function NutritionAIAppContent({ db, currentUser, isAuthReady, setErrorMessage, 
   };
 
   return (
-    // Main container now uses a wider max-width and no hover effect for better site-like appearance
+    // Ana konteyner artık daha geniş bir max-width kullanıyor ve daha iyi bir site benzeri görünüm için hover efekti yok
     <div className="min-h-screen bg-gradient-br flex items-center justify-center p-4 font-inter">
-      {/* Removed hover:scale-105 from this div */}
-      <div className="bg-white p-8 pt-16 rounded-2xl shadow-xl w-full max-w-full relative transform transition-all duration-300"> {/* Added pt-16 for top padding */}
-        {/* Header container for title and buttons */}
+      {/* Bu div'den hover:scale-105 kaldırıldı */}
+      <div className="bg-white p-8 pt-16 rounded-2xl shadow-xl w-full max-w-full relative transform transition-all duration-300"> {/* Üst dolgu için pt-16 eklendi */}
+        {/* Başlık ve butonlar için başlık konteyneri */}
         <div className="header-container">
           <h1 className="text-4xl font-extrabold text-green-800 tracking-tight">
             NutritionAI
           </h1>
-          {/* Buttons moved to top-right corner using absolute positioning */}
-          <div className="header-button-group"> {/* Applied custom CSS class */}
+          {/* Butonlar özel CSS sınıfı kullanılarak sağ üst köşeye taşındı */}
+          <div className="header-button-group"> {/* Özel CSS sınıfı uygulandı */}
             <button
               onClick={() => setShowProfile(!showProfile)}
               className="btn-green"
@@ -1364,7 +1365,7 @@ function NutritionAIAppContent({ db, currentUser, isAuthReady, setErrorMessage, 
         {showProfile ? (
           <div className="space-y-6">
             <h2 className="text-xl font-bold text-gray-800 mb-4">Profil Bilgileriniz</h2>
-            {/* Updated gap to gap-8 for increased spacing */}
+            {/* Artırılmış boşluk için gap gap-8 olarak güncellendi */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="mx-auto w-full max-w-xs">
                 <label htmlFor="profileWeight" className="block text-base font-semibold text-gray-700 mb-2">
@@ -1409,7 +1410,7 @@ function NutritionAIAppContent({ db, currentUser, isAuthReady, setErrorMessage, 
                 <label className="block text-base font-semibold text-gray-700 mb-2">
                   Cinsiyet
                 </label>
-                {/* Applied custom CSS class for gender options spacing */}
+                {/* Cinsiyet seçenekleri aralığı için özel CSS sınıfı uygulandı */}
                 <div className="gender-options-group">
                   <label className={`radio-option-label ${gender === 'male' ? 'gender-option-male-selected' : 'gender-option-default'}`}>
                     <input
@@ -1457,7 +1458,7 @@ function NutritionAIAppContent({ db, currentUser, isAuthReady, setErrorMessage, 
                 <label className="block text-base font-semibold text-gray-700 mb-2">
                   Kilo Hedefi
                 </label>
-                <div className="flex flex-wrap gap-weight-goal mt-1 justify-center md:justify-start"> {/* Applied custom gap class */}
+                <div className="flex flex-wrap gap-weight-goal mt-1 justify-center md:justify-start"> {/* Özel boşluk sınıfı uygulandı */}
                   <label className={`radio-option-label ${weightGoal === 'lose' ? 'weight-goal-option-selected' : 'weight-goal-option-default'}`}>
                     <input
                       type="radio"
@@ -1586,7 +1587,7 @@ function NutritionAIAppContent({ db, currentUser, isAuthReady, setErrorMessage, 
           <>
             <div className="space-y-6 mb-8">
               <h2 className="text-xl font-bold text-gray-800 mb-4">Beslenme Planı Oluştur</h2>
-              {/* Updated gap to gap-8 for increased spacing */}
+              {/* Artırılmış boşluk için gap gap-8 olarak güncellendi */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="mx-auto w-full max-w-xs">
                   <label htmlFor="weight" className="block text-base font-semibold text-gray-700 mb-2">
@@ -1631,7 +1632,7 @@ function NutritionAIAppContent({ db, currentUser, isAuthReady, setErrorMessage, 
                   <label className="block text-base font-semibold text-gray-700 mb-2">
                     Cinsiyet
                   </label>
-                  {/* Applied custom CSS class for gender options spacing */}
+                  {/* Cinsiyet seçenekleri aralığı için özel CSS sınıfı uygulandı */}
                   <div className="gender-options-group">
                     <label className={`radio-option-label ${gender === 'male' ? 'gender-option-male-selected' : 'gender-option-default'}`}>
                       <input
@@ -1679,7 +1680,7 @@ function NutritionAIAppContent({ db, currentUser, isAuthReady, setErrorMessage, 
                   <label className="block text-base font-semibold text-gray-700 mb-2">
                     Kilo Hedefi
                   </label>
-                  <div className="flex flex-wrap gap-weight-goal mt-1 justify-center md:justify-start"> {/* Applied custom gap class */}
+                  <div className="flex flex-wrap gap-weight-goal mt-1 justify-center md:justify-start"> {/* Özel boşluk sınıfı uygulandı */}
                     <label className={`radio-option-label ${weightGoal === 'lose' ? 'weight-goal-option-selected' : 'weight-goal-option-default'}`}>
                       <input
                         type="radio"
@@ -1845,7 +1846,8 @@ function NutritionAIAppContent({ db, currentUser, isAuthReady, setErrorMessage, 
                     ) : (
                       <>
                         <svg className="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0
+                          002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
                         </svg>
                         Planı Güncelle
                       </>
@@ -1926,11 +1928,11 @@ function NutritionAIAppContent({ db, currentUser, isAuthReady, setErrorMessage, 
   );
 }
 
-// InitialChoiceScreen Component: Initial choice screen when the app opens
+// InitialChoiceScreen Bileşeni: Uygulama açıldığında ilk seçim ekranı
 function InitialChoiceScreen({ onChooseAuth }) {
   return (
     <div className="min-h-screen bg-gradient-br flex items-center justify-center p-4 font-inter">
-      {/* Removed hover:scale-105 from this div */}
+      {/* Bu div'den hover:scale-105 kaldırıldı */}
       <div className="bg-white p-8 rounded-2xl shadow-xl w-full max-w-sm text-center transform transition-all duration-300">
         <h1 className="text-4xl font-extrabold text-green-800 tracking-tight mb-8">
           NutritionAI
@@ -1947,7 +1949,7 @@ function InitialChoiceScreen({ onChooseAuth }) {
           </button>
           <button
             onClick={() => onChooseAuth('register')}
-            className="w-full btn-secondary" // Changed class to btn-secondary for blue style
+            className="w-full btn-secondary" // Mavi stil için sınıf btn-secondary olarak değiştirildi
           >
             Kayıt Ol
           </button>
@@ -1957,7 +1959,7 @@ function InitialChoiceScreen({ onChooseAuth }) {
   );
 }
 
-// Main App Component: Manages the overall structure of the application and authentication flow
+// Ana Uygulama Bileşeni: Uygulamanın genel yapısını ve kimlik doğrulama akışını yönetir
 function App() {
   const [db, setDb] = useState(null);
   const [auth, setAuth] = useState(null);
@@ -1974,20 +1976,20 @@ function App() {
   const [showAuthModal, setShowAuthModal] = useState(false);
   const [authModalInitialMode, setAuthModalInitialMode] = useState('login');
 
-  // These variables are provided by the Canvas environment.
-  // We use a typeof check to prevent 'undefined' errors in local development.
+  // Bu değişkenler Canvas ortamı tarafından sağlanır.
+  // Yerel geliştirmede 'undefined' hatalarını önlemek için typeof kontrolü kullanıyoruz.
   const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
 
   useEffect(() => {
     try {
-      // Firebase configuration updated with the provided API Key and other details
+      // Sağlanan API Anahtarı ve diğer detaylarla güncellenmiş Firebase yapılandırması
       const firebaseConfig = {
-        apiKey: "AIzaSyAuFL9wSgRHWop747_9NgH5tLmWsL6aygQ", // Updated Firebase API Key
-        authDomain: "nutritionaiapp.firebaseapp.com",
-        projectId: "nutritionaiapp",
-        storageBucket: "nutritionaiapp.firebasestorage.app",
-        messagingSenderId: "239220731973",
-        appId: "1:239220731973:web:980e255eca6b0c0becf32c"
+        apiKey: "AIzaSyC2NhdXeu_d-Ra6XZwcEs-LXwa047iZ3ic",
+        authDomain: "nutrition-a.firebaseapp.com",
+        projectId: "nutrition-a",
+        storageBucket: "nutrition-a.firebasestorage.app",
+        messagingSenderId: "1068936658796",
+        appId: "1:1068936658796:web:6b2b3196104a92b57fbd49" // Düzeltilen appId
       };
 
       const app = initializeApp(firebaseConfig);
@@ -2002,12 +2004,12 @@ function App() {
         setIsAuthReady(true);
         setAuthLoading(false);
 
-        // If no user and custom token is available, try to sign in with custom token
+        // Kullanıcı yoksa ve özel belirteç mevcutsa, özel belirteçle giriş yapmayı dene
         if (!user && typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
           try {
             await signInWithCustomToken(authInstance, __initial_auth_token);
           } catch (error) {
-            console.warn("Automatic login failed (internal issue):", error.message);
+            console.warn("Otomatik giriş başarısız (dahili sorun):", error.message);
             setAppMode('initial');
           }
         } else if (!user) {
@@ -2020,7 +2022,7 @@ function App() {
 
       return () => unsubscribeAuth();
     } catch (error) {
-      console.error("Firebase initialization error:", error);
+      console.error("Firebase başlatma hatası:", error);
       setErrorMessage("Uygulama başlatılırken bir hata oluştu: " + error.message);
       setAuthLoading(false);
     }
@@ -2096,7 +2098,7 @@ function App() {
 
   return (
     <div className="min-h-screen bg-gradient-br flex items-center justify-center p-4 font-inter">
-      {/* Removed Tailwind CSS JIT CDN script */}
+      {/* Tailwind CSS JIT CDN script kaldırıldı */}
       <style>{appStyles}</style>
       {/* Genişletilmiş ana uygulama kapsayıcısı. max-w-2xl yerine max-w-7xl kullanıldı. */}
       <div className="bg-white p-8 rounded-2xl shadow-xl w-full max-w-7xl transform transition-all duration-300">
